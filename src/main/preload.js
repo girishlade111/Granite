@@ -19,6 +19,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   deleteFile: (filePath) => ipcRenderer.invoke('file:delete', filePath),
   renameFile: (oldPath, newPath) => ipcRenderer.invoke('file:rename', oldPath, newPath),
   fileExists: (filePath) => ipcRenderer.invoke('file:exists', filePath),
+  writeBase64File: (filePath, base64Data) => ipcRenderer.invoke('file:writeBase64', filePath, base64Data),
 
   // Directory operations
   createDir: (dirPath) => ipcRenderer.invoke('dir:create', dirPath),
