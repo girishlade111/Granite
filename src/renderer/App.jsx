@@ -49,6 +49,7 @@ export default function App() {
     editorLineHeight,
     activeFileId,
     dailyNotesFolder,
+    isLoading,
     openFolder,
     openFile,
   } = useStore()
@@ -206,8 +207,8 @@ export default function App() {
         <div className="welcome-content">
           <h1>Granite</h1>
           <p>Local-first Markdown knowledge management</p>
-          <button className="btn-primary" onClick={openFolder}>
-            Open Folder as Vault
+          <button className="btn-primary" onClick={openFolder} disabled={isLoading}>
+            {isLoading ? 'Opening...' : 'Open Folder as Vault'}
           </button>
         </div>
       </div>
