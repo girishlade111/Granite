@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="fTop" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#50555E"/>
+      <stop offset="100%" stop-color="#383B42"/>
+    </linearGradient>
+    <linearGradient id="fLeft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3A3D45"/>
+      <stop offset="100%" stop-color="#282A30"/>
+    </linearGradient>
+    <linearGradient id="fRight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2D3038"/>
+      <stop offset="100%" stop-color="#1B1C22"/>
+    </linearGradient>
+    <linearGradient id="fBright" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#606570"/>
+      <stop offset="100%" stop-color="#787E8C"/>
+    </linearGradient>
+    <linearGradient id="fNavy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2E3542"/>
+      <stop offset="100%" stop-color="#1E232E"/>
+    </linearGradient>
+    <linearGradient id="fBottom" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#25272D"/>
+      <stop offset="100%" stop-color="#111215"/>
+    </linearGradient>
+    <linearGradient id="fRim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7E8798"/>
+      <stop offset="100%" stop-color="#505562"/>
+    </linearGradient>
+    <linearGradient id="fDark" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#1A1C20"/>
+      <stop offset="100%" stop-color="#0C0D10"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Drop shadow -->
+  <ellipse cx="258" cy="388" rx="100" ry="20" fill="#000" opacity="0.3"/>
+  <ellipse cx="254" cy="395" rx="75" ry="12" fill="#000" opacity="0.15"/>
+
+  <!-- Deep shadow core -->
+  <polygon points="256,370 180,300 160,220 220,135 320,145 380,260 340,340" fill="#0E0F12" opacity="0.2"/>
+
+  <!-- ===== FACETS ===== -->
+  <!-- Center facet -->
+  <polygon points="256,345 215,290 205,225 242,178 298,182 335,232 326,296" fill="url(#fTop)"/>
+
+  <!-- Top facet (bright) -->
+  <polygon points="242,178 205,225 185,165 222,108 278,112 298,182" fill="url(#fBright)"/>
+
+  <!-- Top-right facet -->
+  <polygon points="298,182 278,112 338,108 376,162 366,210 335,232" fill="url(#fRim)"/>
+
+  <!-- Left facet -->
+  <polygon points="205,225 215,290 185,298 146,260 140,202 185,165" fill="url(#fLeft)"/>
+
+  <!-- Far-left facet -->
+  <polygon points="146,260 185,298 164,335 126,308 110,272 140,202" fill="url(#fNavy)"/>
+
+  <!-- Right facet -->
+  <polygon points="335,232 366,210 376,256 356,316 326,296" fill="url(#fRight)"/>
+
+  <!-- Far-right facet -->
+  <polygon points="376,256 356,316 386,336 406,300 396,258" fill="url(#fNavy)"/>
+
+  <!-- Bottom facet -->
+  <polygon points="215,290 256,345 326,296 306,354 250,374 185,335" fill="url(#fBottom)"/>
+
+  <!-- Bottom-right corner -->
+  <polygon points="326,296 306,354 354,364 386,336 356,316" fill="url(#fDark)"/>
+
+  <!-- Bottom-left corner -->
+  <polygon points="215,290 185,335 164,335 126,308 185,298" fill="url(#fDark)"/>
+
+  <!-- Top-left bevel -->
+  <polygon points="185,165 205,225 175,212 152,172" fill="url(#fLeft)"/>
+
+  <!-- Center ridge line -->
+  <polygon points="256,345 242,178 256,186 268,336" fill="#FFFFFF" opacity="0.015"/>
+
+  <!-- ===== GRANITE SPECKLES ===== -->
+  <!-- Quartz (white/light grey) -->
+  <g fill="#D0D4DE" opacity="0.5">
+    <circle cx="258" cy="222" r="3"/><circle cx="232" cy="262" r="2.2"/>
+    <circle cx="288" cy="205" r="2.8"/><circle cx="272" cy="308" r="1.8"/>
+    <circle cx="218" cy="185" r="2.2"/><circle cx="328" cy="252" r="1.8"/>
+    <circle cx="198" cy="272" r="1.8"/><circle cx="308" cy="290" r="1.5"/>
+    <circle cx="252" cy="338" r="2.2"/><circle cx="170" cy="225" r="1.8"/>
+    <circle cx="340" cy="175" r="2"/><circle cx="195" cy="310" r="2"/>
+    <circle cx="240" cy="140" r="2.5"/><circle cx="310" cy="160" r="1.8"/>
+    <circle cx="160" cy="280" r="1.5"/><circle cx="350" cy="290" r="2"/>
+    <circle cx="230" cy="190" r="2"/><circle cx="290" cy="260" r="2"/>
+    <circle cx="260" cy="300" r="1.5"/><circle cx="180" cy="200" r="1.8"/>
+  </g>
+
+  <!-- Feldspar (grey) -->
+  <g fill="#A0A8B8" opacity="0.45">
+    <circle cx="225" cy="235" r="2.5"/><circle cx="302" cy="228" r="2.2"/>
+    <circle cx="248" cy="200" r="2"/><circle cx="278" cy="268" r="2.5"/>
+    <circle cx="205" cy="305" r="1.8"/><circle cx="158" cy="292" r="2"/>
+    <circle cx="290" cy="155" r="2"/><circle cx="365" cy="235" r="1.8"/>
+    <circle cx="235" cy="300" r="2.2"/><circle cx="320" cy="270" r="1.5"/>
+    <circle cx="175" cy="248" r="2"/><circle cx="380" cy="270" r="1.5"/>
+    <circle cx="270" cy="230" r="1.8"/><circle cx="210" cy="260" r="1.5"/>
+  </g>
+
+  <!-- Dark mica (black) -->
+  <g fill="#141418" opacity="0.5">
+    <circle cx="268" cy="258" r="2.2"/><circle cx="244" cy="302" r="1.8"/>
+    <circle cx="312" cy="215" r="2"/><circle cx="228" cy="152" r="2.2"/>
+    <circle cx="192" cy="242" r="1.8"/><circle cx="348" cy="268" r="1.5"/>
+    <circle cx="275" cy="185" r="2"/><circle cx="212" cy="328" r="2"/>
+    <circle cx="335" cy="195" r="1.5"/><circle cx="265" cy="280" r="1.8"/>
+    <circle cx="218" cy="210" r="1.5"/><circle cx="330" cy="300" r="1.5"/>
+    <circle cx="250" cy="250" r="1.8"/><circle cx="295" cy="330" r="1.5"/>
+  </g>
+
+  <!-- ===== EDGE LINES ===== -->
+  <g fill="none" stroke-linejoin="round">
+    <polyline points="242,178 205,225 215,290 256,345 326,296 335,232 298,182 242,178" stroke="#788094" stroke-width="2.5" opacity="0.65"/>
+    <polyline points="242,178 185,165 222,108 278,112 298,182" stroke="#8892A8" stroke-width="2" opacity="0.55"/>
+    <polyline points="298,182 278,112 338,108 376,162 366,210 335,232" stroke="#9AA4B8" stroke-width="2" opacity="0.5"/>
+    <polyline points="205,225 146,260 140,202 185,165" stroke="#687084" stroke-width="2" opacity="0.45"/>
+    <polyline points="146,260 185,298 164,335 126,308 110,272 140,202" stroke="#485064" stroke-width="1.5" opacity="0.35"/>
+    <polyline points="335,232 366,210 376,256 356,316 326,296" stroke="#586074" stroke-width="1.8" opacity="0.4"/>
+    <polyline points="215,290 185,335 250,374 306,354 326,296" stroke="#384050" stroke-width="1.8" opacity="0.35"/>
+    <polyline points="306,354 354,364 386,336 356,316" stroke="#283040" stroke-width="1.5" opacity="0.3"/>
+    <polyline points="126,308 164,335 185,335 215,290" stroke="#384050" stroke-width="1.5" opacity="0.3"/>
+  </g>
+
+  <!-- ===== RIM LIGHTING ===== -->
+  <g fill="none" stroke-linejoin="round">
+    <polyline points="222,108 242,178 298,182 278,112" stroke="#C8D0E4" stroke-width="1.8" opacity="0.35"/>
+    <polyline points="278,112 338,108 376,162" stroke="#B0BCD0" stroke-width="1.4" opacity="0.25"/>
+    <polyline points="185,165 205,225 215,290" stroke="#A0A8C0" stroke-width="1.2" opacity="0.2"/>
+    <polyline points="335,232 366,210 376,256" stroke="#8890A8" stroke-width="1.2" opacity="0.18"/>
+  </g>
+
+  <!-- ===== SPECULAR HIGHLIGHTS ===== -->
+  <g fill="#FFFFFF">
+    <ellipse cx="250" cy="148" rx="28" ry="8" opacity="0.05" transform="rotate(-14,250,148)"/>
+    <ellipse cx="262" cy="140" rx="16" ry="5" opacity="0.06" transform="rotate(-8,262,140)"/>
+    <ellipse cx="328" cy="152" rx="18" ry="6" opacity="0.035" transform="rotate(-24,328,152)"/>
+    <ellipse cx="262" cy="242" rx="22" ry="10" opacity="0.025" transform="rotate(-4,262,242)"/>
+    <ellipse cx="244" cy="256" rx="10" ry="6" opacity="0.02" transform="rotate(-10,244,256)"/>
+  </g>
+
+  <!-- ===== AMBIENT OCCLUSION ===== -->
+  <g fill="#000">
+    <polygon points="126,308 164,335 159,331 133,304" opacity="0.18"/>
+    <polygon points="386,336 354,364 359,360 378,339" opacity="0.12"/>
+    <polygon points="110,272 140,202 135,222 115,262" opacity="0.1"/>
+    <polygon points="376,162 394,258 390,248 377,178" opacity="0.06"/>
+    <ellipse cx="256" cy="378" rx="65" ry="12" opacity="0.12"/>
+  </g>
+</svg>
