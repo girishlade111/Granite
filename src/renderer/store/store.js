@@ -332,6 +332,7 @@ const useStore = create((set, get) => ({
   toggleCanvas: () => set((s) => ({ canvasOpen: !s.canvasOpen })),
   toggleSearch: () => set((s) => ({ searchOpen: !s.searchOpen })),
   toggleHelp: () => set((s) => ({ helpOpen: !s.helpOpen })),
+  toggleSettings: () => set((s) => ({ settingsOpen: !s.settingsOpen })),
   setSearchQuery: (q) => set({ searchQuery: q }),
   toggleTheme: () => {
     set((s) => {
