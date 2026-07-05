@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Search, PanelLeft, PanelRight, Share2, Moon, Sun, LayoutGrid, Minus, Square, X } from 'lucide-react'
+import { Search, PanelLeft, PanelRight, Share2, Moon, Sun, LayoutGrid, Settings, Minus, Square, X } from 'lucide-react'
 import useStore from '../store/store'
 
 export default function TitleBar() {
