@@ -505,6 +505,29 @@ html, body, #root {
   background: var(--bg-primary);
 }
 
+.cm-tag-highlight {
+  color: var(--accent) !important;
+  background: rgba(203, 166, 247, 0.12);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.cm-highlight-marker {
+  background: rgba(255, 230, 0, 0.25);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.cm-checkbox {
+  cursor: pointer;
+}
+
+.cm-editor .cm-foldGutter .cm-gutterElement {
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
 /* === Frontmatter Editor === */
 
 .frontmatter-editor {
