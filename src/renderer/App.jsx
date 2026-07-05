@@ -131,8 +131,6 @@ export default function App() {
       window.electronAPI?.getSavedVaultPath().then((savedPath) => {
         if (savedPath) {
           useStore.getState().openFolderByPath(savedPath)
-        } else {
-          openFolder()
         }
       })
     }
