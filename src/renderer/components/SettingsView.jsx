@@ -1,12 +1,34 @@
 import React from 'react'
+import { FolderOpen } from 'lucide-react'
 import useStore from '../store/store'
 
 export default function SettingsView() {
-  const { theme, toggleTheme, editorFontSize, editorLineHeight, dailyNotesFolder, setEditorFontSize, setEditorLineHeight, setDailyNotesFolder } = useStore()
+  const {
+    vaultPath,
+    theme, toggleTheme,
+    editorFontSize, editorLineHeight,
+    dailyNotesFolder,
+    setEditorFontSize, setEditorLineHeight,
+    setDailyNotesFolder,
+    openFolder,
+  } = useStore()
 
   return (
     <div className="settings-view">
       <h2>Settings</h2>
+
+      <div className="settings-section">
+        <h3>Vault</h3>
+        <div className="settings-row">
+          <div>
+            <div className="settings-label">Current vault</div>
+            <div className="settings-desc">{vaultPath || 'No vault selected'}</div>
+          </div>
+          <button className="btn-secondary" onClick={openFolder}>
+            <FolderOpen size={14} /> Change Vault
+          </button>
+        </div>
+      </div>
 
       <div className="settings-section">
         <h3>Appearance</h3>
