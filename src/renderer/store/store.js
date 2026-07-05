@@ -31,6 +31,7 @@ const useStore = create((set, get) => ({
   canvasOpen: false,
   searchOpen: false,
   helpOpen: false,
+  settingsOpen: false,
   searchQuery: '',
   theme: 'dark',
   editorFontSize: 14,
