@@ -59,6 +59,7 @@ const useStore = create((set, get) => ({
   setVaultTree: (tree) => set({ vaultTree: tree }),
 
   openFolder: async () => {
+    if (get().isLoading) return
     set({ isLoading: true })
     try {
       if (!window.electronAPI?.openFolder) return
@@ -69,7 +70,13 @@ const useStore = create((set, get) => ({
           const proceed = window.confirm?.('No .md files found in this folder. Open anyway?')
           if (!proceed) { set({ isLoading: false }); return }
         }
-        set({ vaultPath: result.path, vaultTree: result.tree })
+        set({
+          vaultPath: result.path,
+          vaultTree: result.tree,
+          openFiles: [],
+          activeFileId: null,
+          fileContents: {},
+        })
         get().refreshIndex()
         pluginEngine.hooks.onVaultChange.forEach((fn) => fn(result.path))
       }
@@ -79,12 +86,19 @@ const useStore = create((set, get) => ({
   },
 
   openFolderByPath: async (savedPath) => {
+    if (get().isLoading) return
     set({ isLoading: true })
     try {
       if (!window.electronAPI?.openByPath) return
       const result = await window.electronAPI.openByPath(savedPath)
       if (result) {
-        set({ vaultPath: result.path, vaultTree: result.tree })
+        set({
+          vaultPath: result.path,
+          vaultTree: result.tree,
+          openFiles: [],
+          activeFileId: null,
+          fileContents: {},
+        })
         get().refreshIndex()
         pluginEngine.hooks.onVaultChange.forEach((fn) => fn(result.path))
       }
