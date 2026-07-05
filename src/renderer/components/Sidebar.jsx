@@ -113,9 +113,10 @@ export default function Sidebar() {
     if (!newName || newName === item.name) { setContextMenu(null); return }
     try {
       if (item.type === 'directory') {
+        const sep = window.electronAPI?.pathSep || '/'
         const parts = item.path.split(/[\\/]/)
         parts[parts.length - 1] = newName
-        const newPath = parts.join('/')
+        const newPath = parts.join(sep)
         await window.electronAPI?.renameFile?.(item.path, newPath)
         refreshTree()
       } else {
