@@ -26,6 +26,18 @@
   --radius-sm: 4px;
   --radius-md: 8px;
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --callout-note: #89b4fa;
+  --callout-warning: #f9c74f;
+  --callout-tip: #a6e3a1;
+  --callout-important: #f38ba8;
+  --callout-caution: #fab387;
+  --callout-info: #89dceb;
+  --callout-question: #94e2d5;
+  --callout-failure: #eba0ac;
+  --callout-error: #f38ba8;
+  --callout-success: #a6e3a1;
+  --callout-example: #cba6f7;
+  --callout-quote: #a6adc8;
 }
 
 [data-theme='light'] {
@@ -496,18 +508,18 @@ html, body, #root {
   padding: 12px 16px;
   margin: 1em 0;
 }
-.callout-note { border-left-color: #89b4fa; background: rgba(137,180,250,0.08); }
-.callout-warning { border-left-color: #f9c74f; background: rgba(249,199,79,0.08); }
-.callout-tip { border-left-color: #a6e3a1; background: rgba(166,227,161,0.08); }
-.callout-important { border-left-color: #f38ba8; background: rgba(243,139,168,0.08); }
-.callout-caution { border-left-color: #fab387; background: rgba(250,179,135,0.08); }
-.callout-info { border-left-color: #89dceb; background: rgba(137,220,235,0.08); }
-.callout-question { border-left-color: #94e2d5; background: rgba(148,226,213,0.08); }
-.callout-failure { border-left-color: #eba0ac; background: rgba(235,160,172,0.08); }
-.callout-error { border-left-color: #f38ba8; background: rgba(243,139,168,0.08); }
-.callout-success { border-left-color: #a6e3a1; background: rgba(166,227,161,0.08); }
-.callout-example { border-left-color: #cba6f7; background: rgba(203,166,247,0.08); }
-.callout-quote { border-left-color: #a6adc8; background: rgba(166,173,200,0.08); }
+.callout-note { border-left-color: var(--callout-note); background: color-mix(in srgb, var(--callout-note) 10%, transparent); }
+.callout-warning { border-left-color: var(--callout-warning); background: color-mix(in srgb, var(--callout-warning) 10%, transparent); }
+.callout-tip { border-left-color: var(--callout-tip); background: color-mix(in srgb, var(--callout-tip) 10%, transparent); }
+.callout-important { border-left-color: var(--callout-important); background: color-mix(in srgb, var(--callout-important) 10%, transparent); }
+.callout-caution { border-left-color: var(--callout-caution); background: color-mix(in srgb, var(--callout-caution) 10%, transparent); }
+.callout-info { border-left-color: var(--callout-info); background: color-mix(in srgb, var(--callout-info) 10%, transparent); }
+.callout-question { border-left-color: var(--callout-question); background: color-mix(in srgb, var(--callout-question) 10%, transparent); }
+.callout-failure { border-left-color: var(--callout-failure); background: color-mix(in srgb, var(--callout-failure) 10%, transparent); }
+.callout-error { border-left-color: var(--callout-error); background: color-mix(in srgb, var(--callout-error) 10%, transparent); }
+.callout-success { border-left-color: var(--callout-success); background: color-mix(in srgb, var(--callout-success) 10%, transparent); }
+.callout-example { border-left-color: var(--callout-example); background: color-mix(in srgb, var(--callout-example) 10%, transparent); }
+.callout-quote { border-left-color: var(--callout-quote); background: color-mix(in srgb, var(--callout-quote) 10%, transparent); }
 
 .callout-title {
   font-weight: 600;
