@@ -174,7 +174,7 @@ function FileEditor({ file }) {
         <div className="markdown-preview" onClick={handlePreviewClick}>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeKatex]}
+            rehypePlugins={[rehypeKatex, rehypeRaw]}
           >
             {renderedContent}
           </ReactMarkdown>
