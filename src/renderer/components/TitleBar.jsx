@@ -61,6 +61,9 @@ export default function TitleBar() {
         <button className="titlebar-btn" onClick={toggleTheme} title="Toggle theme">
           {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
         </button>
+        <button className="titlebar-btn" onClick={toggleSettings} title="Settings">
+          <Settings size={16} />
+        </button>
       </div>
       <div className="titlebar-right">
         {activeFile?.isDirty && (
