@@ -111,6 +111,10 @@ export default function App() {
       e.preventDefault()
       useStore.getState().openFolder()
     }
+    if (mod && e.key === ',') {
+      e.preventDefault()
+      useStore.getState().toggleSettings()
+    }
     if (mod && e.key === 'w') {
       e.preventDefault()
       const state = useStore.getState()
