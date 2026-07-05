@@ -6,14 +6,23 @@ import rehypeKatex from 'rehype-katex'
 import useStore from '../store/store'
 import MarkdownEditor from '../editor/MarkdownEditor'
 import FrontmatterEditor from '../editor/FrontmatterEditor'
+import SettingsView from './SettingsView'
 import { pluginEngine } from '../plugins/PluginEngine'
 
 export default function EditorPane() {
-  const { openFiles, activeFileId, closeFile, setActiveFile } = useStore()
+  const { openFiles, activeFileId, closeFile, setActiveFile, settingsOpen } = useStore()
   const activeFile = useMemo(
     () => openFiles.find((f) => f.path === activeFileId),
     [openFiles, activeFileId]
   )
+
+  if (settingsOpen) {
+    return (
+      <div className="editor-pane">
+        <SettingsView />
+      </div>
+    )
+  }
 
   if (openFiles.length === 0) {
     return (
