@@ -294,16 +294,23 @@ async function getVaultTree(dirPath, prefix = '') {
 // --- IPC Handlers ---
 
 ipcMain.handle('dialog:openFolder', async () => {
-  const result = await dialog.showOpenDialog(mainWindow, {
-    properties: ['openDirectory'],
-  })
-  if (!result.canceled && result.filePaths.length > 0) {
-    const dir = result.filePaths[0]
-    startWatching(dir)
-    saveVaultPath(dir)
-    return { path: dir, tree: await getVaultTree(dir) }
+  try {
+    const result = await dialog.showOpenDialog(mainWindow, {
+      properties: ['openDirectory'],
+    })
+    if (!result.canceled && result.filePaths.length > 0) {
+      const dir = result.filePaths[0]
+      startWatching(dir)
+      saveVaultPath(dir)
+      const tree = await getVaultTree(dir)
+      console.log('Vault opened:', dir)
+      return { path: dir, tree }
+    }
+    return null
+  } catch (err) {
+    console.error('dialog:openFolder IPC error:', err)
+    return null
   }
-  return null
 })
 
 ipcMain.handle('vault:getTree', async (_event, dirPath) => {
@@ -313,11 +320,16 @@ ipcMain.handle('vault:getTree', async (_event, dirPath) => {
 })
 
 ipcMain.handle('vault:openByPath', async (_event, dirPath) => {
-  if (!dirPath || !fs.existsSync(dirPath)) return null
-  startWatching(dirPath)
-  saveVaultPath(dirPath)
-  const tree = await getVaultTree(dirPath)
-  return { path: dirPath, tree }
+  try {
+    if (!dirPath || !fs.existsSync(dirPath)) return null
+    startWatching(dirPath)
+    saveVaultPath(dirPath)
+    const tree = await getVaultTree(dirPath)
+    return { path: dirPath, tree }
+  } catch (err) {
+    console.error('vault:openByPath IPC error:', err)
+    return null
+  }
 })
 
 ipcMain.handle('vault:getSavedPath', () => {

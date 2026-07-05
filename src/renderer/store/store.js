@@ -62,8 +62,9 @@ const useStore = create((set, get) => ({
     if (get().isLoading) return
     set({ isLoading: true })
     try {
-      if (!window.electronAPI?.openFolder) return
+      if (!window.electronAPI?.openFolder) { console.error('openFolder: electronAPI.openFolder missing'); return }
       const result = await window.electronAPI.openFolder()
+      console.log('openFolder dialog result:', result ? 'folder selected' : 'cancelled')
       if (result) {
         const hasMarkdown = result.tree && hasMdFiles(result.tree)
         if (!hasMarkdown) {
@@ -80,6 +81,8 @@ const useStore = create((set, get) => ({
         get().refreshIndex()
         pluginEngine.hooks.onVaultChange.forEach((fn) => fn(result.path))
       }
+    } catch (e) {
+      console.error('openFolder action error:', e)
     } finally {
       set({ isLoading: false })
     }
@@ -89,7 +92,7 @@ const useStore = create((set, get) => ({
     if (get().isLoading) return
     set({ isLoading: true })
     try {
-      if (!window.electronAPI?.openByPath) return
+      if (!window.electronAPI?.openByPath) { console.error('openFolderByPath: electronAPI.openByPath missing'); return }
       const result = await window.electronAPI.openByPath(savedPath)
       if (result) {
         set({
@@ -102,6 +105,8 @@ const useStore = create((set, get) => ({
         get().refreshIndex()
         pluginEngine.hooks.onVaultChange.forEach((fn) => fn(result.path))
       }
+    } catch (e) {
+      console.error('openFolderByPath action error:', e)
     } finally {
       set({ isLoading: false })
     }
