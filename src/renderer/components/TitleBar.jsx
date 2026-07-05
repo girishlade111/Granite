@@ -16,6 +16,7 @@ export default function TitleBar() {
     toggleCanvas,
     toggleSearch,
     toggleTheme,
+    toggleSettings,
     saveFile,
   } = useStore()
 
