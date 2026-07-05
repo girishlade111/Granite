@@ -149,7 +149,8 @@ const useStore = create((set, get) => ({
 
   // --- File Operations ---
   openFile: async (filePath) => {
-    const { openFiles } = get()
+    const { openFiles, settingsOpen } = get()
+    if (settingsOpen) set({ settingsOpen: false })
     if (openFiles.find((f) => f.path === filePath)) {
       set({ activeFileId: filePath })
       return
