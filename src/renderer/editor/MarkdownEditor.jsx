@@ -15,9 +15,24 @@ const checkboxDeco = Decoration.mark({ class: 'cm-checkbox' })
 
 function tagHighlighter() {
   return StateField.define({
-    create() { return Decoration.none },
-    update(decos, tr) {
-      if (!tr.docChanged) return decos
+    create(state) {
+      const decorations = []
+      const seen = new Set()
+      const text = state.doc.toString()
+      const regex = /(?:^|\s)(#[^\s#!@$%^&*()=+[\]{}|;:'",.<>/?`~]+)/g
+      let match
+      while ((match = regex.exec(text)) !== null) {
+        const from = match.index + match[0].indexOf(match[1])
+        const to = from + match[1].length
+        if (!seen.has(from)) {
+          seen.add(from)
+          decorations.push(tagDeco.range(from, to))
+        }
+      }
+      return Decoration.set(decorations, true)
+    },
+    update(_decos, tr) {
+      if (!tr.docChanged) return _decos
       const decorations = []
       const seen = new Set()
       const text = tr.state.doc.toString()
@@ -39,7 +54,16 @@ function tagHighlighter() {
 
 function highlightDecorator() {
   return StateField.define({
-    create() { return Decoration.none },
+    create(state) {
+      const decorations = []
+      const text = state.doc.toString()
+      const regex = /==([^=]+)==/g
+      let match
+      while ((match = regex.exec(text)) !== null) {
+        decorations.push(highlightDeco.range(match.index, match.index + match[0].length))
+      }
+      return Decoration.set(decorations, true)
+    },
     update(decos, tr) {
       if (!tr.docChanged) return decos
       const decorations = []
