@@ -1,6 +1,9 @@
 const { contextBridge, ipcRenderer } = require('electron')
+const path = require('path')
 
 contextBridge.exposeInMainWorld('electronAPI', {
+  pathSep: path.sep,
+
   // Dialog
   openFolder: () => ipcRenderer.invoke('dialog:openFolder'),
 

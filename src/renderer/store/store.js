@@ -259,9 +259,12 @@ const useStore = create((set, get) => ({
 
   renameFile: async (oldPath, newName) => {
     if (!window.electronAPI?.renameFile) return
+    const sep = window.electronAPI.pathSep || '/'
+    const oldExt = oldPath.match(/(\.\w+)$/)
+    const finalName = (oldExt && !newName.includes('.')) ? newName + oldExt[0] : newName
     const parts = oldPath.split(/[\\/]/)
-    parts[parts.length - 1] = newName
-    const newPath = parts.join('/')
+    parts[parts.length - 1] = finalName
+    const newPath = parts.join(sep)
     let result
     try {
       result = await window.electronAPI.renameFile(oldPath, newPath)
@@ -278,7 +281,7 @@ const useStore = create((set, get) => ({
       if (state.activeFileId === oldPath) set({ activeFileId: newPath })
       set({
         openFiles: state.openFiles.map((f) =>
-          f.path === oldPath ? { ...f, path: newPath, name: newName } : f
+          f.path === oldPath ? { ...f, path: newPath, name: finalName } : f
         ),
       })
       get().refreshTree()
