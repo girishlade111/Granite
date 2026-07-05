@@ -391,6 +391,17 @@ ipcMain.handle('dir:delete', async (_event, dirPath) => {
   }
 })
 
+ipcMain.handle('file:writeBase64', async (_event, filePath, base64Data) => {
+  try {
+    await fs.promises.mkdir(path.dirname(filePath), { recursive: true })
+    const data = base64Data.replace(/^data:image\/\w+;base64,/, '')
+    await fs.promises.writeFile(filePath, Buffer.from(data, 'base64'))
+    return { success: true }
+  } catch (err) {
+    return { success: false, error: err.message }
+  }
+})
+
 ipcMain.handle('file:exists', async (_event, filePath) => {
   try {
     await fs.promises.access(filePath)
