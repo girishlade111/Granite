@@ -17,6 +17,38 @@ A local-first Markdown knowledge management desktop app — fast, private, and p
 - **Tag Navigation** — Click tags to filter and browse related notes
 - **Settings** — Configurable theme, vault path, and plugin settings
 
+## Screenshots
+
+### Light Theme
+
+![Light Theme](Images/light%20theme.png)
+
+The default light theme with a clean, readable interface — sidebar file tree on the left, CodeMirror 6 editor in the center with syntax highlighting, and a tabbed editing experience.
+
+### Dark Theme
+
+![Dark Theme](Images/dark%20theme.png)
+
+A comfortable dark mode for low-light environments, applied across the editor, sidebar, title bar, and all modals.
+
+### Markdown Editor
+
+![Markdown Editor](Images/markdown%20editor.png)
+
+Full-featured Markdown editing experience with syntax highlighting, live preview, `[[wikilinks]]` autocomplete, and frontmatter support.
+
+### Graph View
+
+![Graph View](Images/graph.png)
+
+Interactive D3-force visualization of your knowledge base — each note is a node and `[[wikilinks]]` connections form the edges. Click any node to navigate, drag to rearrange, and zoom to explore.
+
+### Backlinks & Outgoing Links Sidebar
+
+![Backlinks and Outgoing Sidebar](Images/backlinks%20and%20outgoing%20sidebar.png)
+
+The sidebar panel shows all incoming backlinks and outgoing `[[wikilinks]]` for the active note, making it easy to navigate your knowledge graph and understand how notes are connected.
+
 ## Download
 
 [Download latest release](https://github.com/girishlade111/Granite/releases/latest)
