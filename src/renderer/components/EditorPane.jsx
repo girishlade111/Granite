@@ -3,6 +3,7 @@ import { X, Eye, Edit3 } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeKatex from 'rehype-katex'
+import rehypeRaw from 'rehype-raw'
 import useStore from '../store/store'
 import MarkdownEditor from '../editor/MarkdownEditor'
 import FrontmatterEditor from '../editor/FrontmatterEditor'
@@ -84,6 +85,34 @@ function FileEditor({ file }) {
 
   const hasMetadata = file.metadata && Object.keys(file.metadata).length > 0
 
+  function preprocessMarkdown(body) {
+    body = body.replace(/==([^=]+)==/g, '<mark>$1</mark>')
+    const lines = body.split('\n')
+    const result = []
+    let inCallout = false
+    let calloutType = ''
+    for (const line of lines) {
+      const calloutMatch = line.match(/^>\s*\[!(\w+)\]\s*(.*)/)
+      if (calloutMatch) {
+        if (inCallout) result.push('</div></div>')
+        calloutType = calloutMatch[1].toLowerCase()
+        const title = calloutMatch[2].trim() || calloutType.charAt(0).toUpperCase() + calloutType.slice(1)
+        result.push(`<div class="callout callout-${calloutType}"><div class="callout-title">${title}</div><div class="callout-content">`)
+        inCallout = true
+      } else if (inCallout && line.startsWith('> ')) {
+        const rest = line.slice(2)
+        result.push(rest + '\n')
+      } else if (inCallout && line === '>') {
+        result.push('\n')
+      } else {
+        if (inCallout) { result.push('</div></div>'); inCallout = false }
+        result.push(line)
+      }
+    }
+    if (inCallout) result.push('</div></div>')
+    return result.join('\n')
+  }
+
   const renderedContent = useMemo(() => {
     if (mode !== 'preview') return ''
     let body = file.body || ''
@@ -95,6 +124,7 @@ function FileEditor({ file }) {
         if (resolved) return `[${name.trim()}](${resolved})`
         return name.trim()
       })
+    body = preprocessMarkdown(body)
     pluginEngine.hooks.onMarkdownRender.forEach((fn) => {
       const result = fn(body, file.path)
       if (typeof result === 'string') body = result
