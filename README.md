@@ -165,3 +165,9 @@ Granite/
 ## License
 
 MIT
+
+## 🙏 Credits
+
+**Built by Girish Lade** — [ladestack.in](https://ladestack.in)
+
+Solo founder of LadeStack, building free tools for everyone.
